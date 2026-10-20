@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Nourd';
+  src: url('/fonts/nourd_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nourd';
+  src: url('/fonts/nourd_medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nourd';
+  src: url('/fonts/nourd_semi_bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nourd';
+  src: url('/fonts/nourd_bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RoxboroughCF';
+  src: url('/fonts/RoxboroughCF.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-cream: #F1E8DF;
+  --color-cream-50: #FAF4EF;
+  --color-pastel: #C8AF9D;
+  --color-pastel-soft: #E6D5C7;
+  --color-rose: #CD9291;
+  --color-rose-dark: #B47978;
+  --color-rose-soft: #E8BEBD;
+  --color-ink: #282420;
+  --color-muted: #6B5C54;
+
+  --font-display: 'RoxboroughCF', 'Playfair Display', Georgia, serif;
+  --font-body: 'Nourd', 'Inter', -apple-system, sans-serif;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
