@@ -1,3 +1,5 @@
+import { PHONE_DISPLAY, PHONE_TEL } from "./ContactCTA";
+
 const SERVICES = [
   {
     label: ["Residential", "Cleaning"],
@@ -42,20 +44,10 @@ const SERVICES = [
 export default function OurServices() {
   return (
     <section
-      className="relative bg-cover bg-top bg-no-repeat -mt-10 md:-mt-16 pt-20 md:pt-32"
-      style={{
-        backgroundImage: "url('/images/background_ourservices.png')",
-        maskImage:
-          "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1200' preserveAspectRatio='none'><path d='M0,60 C300,10 600,100 900,50 C1050,20 1150,70 1200,40 L1200,1140 C900,1180 600,1100 300,1150 C150,1175 60,1160 0,1140 Z' fill='black'/></svg>\")",
-        WebkitMaskImage:
-          "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1200' preserveAspectRatio='none'><path d='M0,60 C300,10 600,100 900,50 C1050,20 1150,70 1200,40 L1200,1140 C900,1180 600,1100 300,1150 C150,1175 60,1160 0,1140 Z' fill='black'/></svg>\")",
-        maskSize: "100% 100%",
-        WebkitMaskSize: "100% 100%",
-        maskRepeat: "no-repeat",
-        WebkitMaskRepeat: "no-repeat",
-      }}
+      className="relative overflow-hidden pt-16 md:pt-24 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/background_padrao.png')" }}
     >
-      <div className="mx-auto max-w-5xl px-4 pb-24 md:pb-32 text-center">
+      <div className="relative mx-auto max-w-5xl px-4 pb-20 md:pb-28 text-center">
         <div className="mb-5 inline-flex items-center gap-3 text-[10px] md:text-[12px] font-bold tracking-[0.25em] md:tracking-[0.3em] uppercase text-ink">
           <span className="h-px w-7 md:w-14 bg-rose/60" />
           <span className="flex items-center gap-2">
@@ -93,6 +85,25 @@ export default function OurServices() {
           {SERVICES.map((_, i) => (
             <span key={i} className="h-1.5 w-1.5 rounded-full bg-rose-dark/40 first:bg-rose-dark" />
           ))}
+        </div>
+
+        <div className="mt-12 md:mt-16 mx-auto max-w-xl rounded-[22px] bg-white/90 border border-pastel-soft/60 shadow-md p-5 md:p-6 flex flex-col md:flex-row items-center gap-4 md:gap-6 text-left">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-rose-soft text-rose-dark">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth={1.8}>
+              <path d="M8 10h.01M12 10h.01M16 10h.01" />
+              <path d="M21 12a8 8 0 11-15.5 2.8L4 20l5.2-1.5A8 8 0 0121 12z" />
+            </svg>
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <strong className="block font-display text-[18px] text-ink leading-tight">Not sure which service?</strong>
+            <span className="text-[13px] text-muted">Chat with our team — we&apos;ll match you to the right fit.</span>
+          </div>
+          <a
+            href={`sms:${PHONE_TEL}`}
+            className="inline-flex items-center gap-2 rounded-full bg-ink text-white py-3 px-5 text-[12px] font-bold tracking-[0.12em] shadow-md hover:bg-black hover:-translate-y-0.5 transition"
+          >
+            TEXT {PHONE_DISPLAY}
+          </a>
         </div>
       </div>
     </section>
