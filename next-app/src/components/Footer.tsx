@@ -66,7 +66,7 @@ export default function Footer() {
 
       <div className="border-t border-pastel-soft/60">
         <div className="mx-auto max-w-5xl px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-[12px] text-muted">
-          <span>© {new Date().getFullYear()} Waves Cleaning Solutions. All rights reserved.</span>
+          <span>© 2026 Waves Cleaning Solutions. All rights reserved.</span>
           <span>Licensed · Insured · Pet-Friendly</span>
         </div>
       </div>
