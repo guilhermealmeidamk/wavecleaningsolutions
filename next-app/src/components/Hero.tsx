@@ -129,6 +129,8 @@ function QuoteForm() {
     notes: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const update = (field: keyof FormData, value: string) =>
     setData((d) => ({ ...d, [field]: value }));
@@ -144,10 +146,55 @@ function QuoteForm() {
   const back = () => {
     if (step > 1) setStep(step - 1);
   };
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!canAdvance) return;
-    setSubmitted(true);
+    if (!canAdvance || sending) return;
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    if (!accessKey) {
+      setErrorMsg("Form is not configured. Please contact us by phone.");
+      return;
+    }
+
+    setSending(true);
+    setErrorMsg(null);
+
+    try {
+      const payload = {
+        access_key: accessKey,
+        subject: `New lead from ${data.name} — Waves Cleaning`,
+        from_name: "Waves Cleaning Website",
+        name: data.name,
+        phone: data.phone,
+        home_size_sqft: data.homeSize,
+        bedrooms: data.bedrooms,
+        bathrooms: data.bathrooms,
+        cleaning_type: data.cleaningType,
+        notes: data.notes || "(none)",
+      };
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+
+      if (!res.ok || !json.success) {
+        throw new Error(json.message || "Submission failed");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMsg(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputClass =
@@ -326,14 +373,21 @@ function QuoteForm() {
           ) : (
             <button
               type="submit"
-              disabled={!canAdvance}
+              disabled={!canAdvance || sending}
               className="flex-[2] inline-flex items-center justify-center gap-2 rounded-full bg-ink text-white py-3 px-4 text-[12px] font-bold tracking-[0.12em] shadow-md hover:bg-black hover:-translate-y-0.5 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
             >
-              GET MY FREE QUOTE
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth={2.5}><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+              {sending ? "SENDING..." : "GET MY FREE QUOTE"}
+              {!sending && (
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth={2.5}><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+              )}
             </button>
           )}
         </div>
+        {errorMsg && (
+          <p className="text-[12px] text-rose-dark text-center mt-1" role="alert">
+            {errorMsg}
+          </p>
+        )}
       </form>
     </>
   );
