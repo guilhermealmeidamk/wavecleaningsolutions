@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { PHONE_TEL } from "./ContactCTA";
 
 type Review = {
@@ -158,6 +158,70 @@ function ReviewCard({ r }: { r: Review }) {
   );
 }
 
+function ReviewsCarousel() {
+  const [idx, setIdx] = useState(0);
+  const total = REVIEWS.length;
+  const go = useCallback(
+    (delta: number) => setIdx((i) => (i + delta + total) % total),
+    [total]
+  );
+
+  return (
+    <div className="relative mx-auto max-w-3xl">
+      <div className="overflow-hidden rounded-[22px]">
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${idx * 100}%)` }}
+        >
+          {REVIEWS.map((r) => (
+            <div key={r.author} className="shrink-0 basis-full px-1">
+              <ReviewCard r={r} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        aria-label="Previous review"
+        onClick={() => go(-1)}
+        className="absolute top-1/2 -translate-y-1/2 left-2 md:-left-6 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-white text-rose-dark border border-pastel-soft shadow-md hover:bg-rose-soft hover:-translate-x-0.5 transition z-10"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 6l-6 6 6 6" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        aria-label="Next review"
+        onClick={() => go(1)}
+        className="absolute top-1/2 -translate-y-1/2 right-2 md:-right-6 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-white text-rose-dark border border-pastel-soft shadow-md hover:bg-rose-soft hover:translate-x-0.5 transition z-10"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
+      </button>
+
+      <div className="mt-6 flex items-center justify-center gap-2">
+        {REVIEWS.map((r, i) => {
+          const active = i === idx;
+          return (
+            <button
+              key={r.author}
+              type="button"
+              aria-label={`Go to review ${i + 1}`}
+              onClick={() => setIdx(i)}
+              className={`h-2 rounded-full transition-all ${
+                active ? "w-8 bg-rose-dark" : "w-2 bg-pastel-soft hover:bg-rose"
+              }`}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function Testimonials() {
   const avg =
     REVIEWS.reduce((s, r) => s + r.rating, 0) / REVIEWS.length;
@@ -201,11 +265,9 @@ export default function Testimonials() {
           </a>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-          {REVIEWS.map((r) => (
-            <ReviewCard key={r.author} r={r} />
-          ))}
-        </div>
+        <ReviewsCarousel />
+
+
 
         <div className="text-center mt-10 md:mt-14 inline-flex flex-wrap items-center justify-center gap-5 w-full">
           <a
