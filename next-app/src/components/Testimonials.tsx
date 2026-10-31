@@ -185,7 +185,7 @@ function ReviewsCarousel() {
         type="button"
         aria-label="Previous review"
         onClick={() => go(-1)}
-        className="absolute top-1/2 -translate-y-1/2 left-2 md:-left-6 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-white text-rose-dark border border-pastel-soft shadow-md hover:bg-rose-soft hover:-translate-x-0.5 transition z-10"
+        className="hidden md:flex absolute top-1/2 -translate-y-1/2 -left-6 h-12 w-12 items-center justify-center rounded-full bg-white text-rose-dark border border-pastel-soft shadow-md hover:bg-rose-soft hover:-translate-x-0.5 transition z-10"
       >
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
           <path d="M15 6l-6 6 6 6" />
@@ -195,28 +195,52 @@ function ReviewsCarousel() {
         type="button"
         aria-label="Next review"
         onClick={() => go(1)}
-        className="absolute top-1/2 -translate-y-1/2 right-2 md:-right-6 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-white text-rose-dark border border-pastel-soft shadow-md hover:bg-rose-soft hover:translate-x-0.5 transition z-10"
+        className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-6 h-12 w-12 items-center justify-center rounded-full bg-white text-rose-dark border border-pastel-soft shadow-md hover:bg-rose-soft hover:translate-x-0.5 transition z-10"
       >
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
           <path d="M9 6l6 6-6 6" />
         </svg>
       </button>
 
-      <div className="mt-6 flex items-center justify-center gap-2">
-        {REVIEWS.map((r, i) => {
-          const active = i === idx;
-          return (
-            <button
-              key={r.author}
-              type="button"
-              aria-label={`Go to review ${i + 1}`}
-              onClick={() => setIdx(i)}
-              className={`h-2 rounded-full transition-all ${
-                active ? "w-8 bg-rose-dark" : "w-2 bg-pastel-soft hover:bg-rose"
-              }`}
-            />
-          );
-        })}
+      <div className="mt-6 flex items-center justify-center gap-3">
+        <button
+          type="button"
+          aria-label="Previous review"
+          onClick={() => go(-1)}
+          className="md:hidden flex h-10 w-10 items-center justify-center rounded-full bg-white text-rose-dark border border-pastel-soft shadow-sm active:bg-rose-soft transition"
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 6l-6 6 6 6" />
+          </svg>
+        </button>
+
+        <div className="flex items-center gap-2">
+          {REVIEWS.map((r, i) => {
+            const active = i === idx;
+            return (
+              <button
+                key={r.author}
+                type="button"
+                aria-label={`Go to review ${i + 1}`}
+                onClick={() => setIdx(i)}
+                className={`h-2 rounded-full transition-all ${
+                  active ? "w-8 bg-rose-dark" : "w-2 bg-pastel-soft hover:bg-rose"
+                }`}
+              />
+            );
+          })}
+        </div>
+
+        <button
+          type="button"
+          aria-label="Next review"
+          onClick={() => go(1)}
+          className="md:hidden flex h-10 w-10 items-center justify-center rounded-full bg-white text-rose-dark border border-pastel-soft shadow-sm active:bg-rose-soft transition"
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 6l6 6-6 6" />
+          </svg>
+        </button>
       </div>
     </div>
   );
