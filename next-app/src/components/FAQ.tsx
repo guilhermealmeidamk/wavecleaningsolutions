@@ -14,11 +14,11 @@ const FAQS = [
   },
   {
     q: "What cleaning products do you use?",
-    a: "We use pet-safe, professional-grade products and equipment. Have specific preferences or allergies? Just let us know.",
+    a: "We use professional-grade products and equipment. Have specific preferences or allergies? Just let us know.",
   },
   {
     q: "Is your service pet-friendly?",
-    a: "Absolutely. Our team is trained to work around pets safely and our products are non-toxic for furry family members.",
+    a: "Absolutely. Our team is trained to work around pets safely and respectfully in your home.",
   },
   {
     q: "What areas do you serve?",

@@ -50,6 +50,21 @@ export default function Footer() {
               </svg>
               Kent County, Delaware
             </li>
+            <li>
+              <a
+                href="https://www.instagram.com/wcleaningsolutions/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-rose-dark transition"
+              >
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+                @wcleaningsolutions
+              </a>
+            </li>
           </ul>
         </div>
 
