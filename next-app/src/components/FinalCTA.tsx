@@ -23,7 +23,7 @@ export default function FinalCTA() {
           the <span className="italic text-rose-dark">care it deserves</span>
         </h2>
         <p className="text-muted text-[14px] md:text-[15px] mb-10 md:mb-12 max-w-xl mx-auto leading-relaxed">
-          Pick what works for you. We respond fast — day or night.
+          Pick what works for you. We respond fast.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5 max-w-2xl mx-auto">

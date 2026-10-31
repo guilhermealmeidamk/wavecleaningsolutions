@@ -57,7 +57,7 @@ export default function ServiceAreas() {
           Proudly Serving <span className="italic text-rose-dark">Kent County</span>
         </h2>
         <p className="text-muted text-[14px] md:text-[15px] mb-10 md:mb-12 max-w-xl mx-auto leading-relaxed">
-          From Dover to Milford, we bring professional cleaning to homes across Delaware.
+          Serving Kent County and surrounding areas with professional cleaning across Delaware.
         </p>
 
         <ul className="flex flex-wrap justify-center gap-2 md:gap-2.5">

@@ -6,7 +6,7 @@ import { PHONE_TEL } from "./ContactCTA";
 const FAQS = [
   {
     q: "Are you fully insured and licensed?",
-    a: "Yes. Waves is a fully licensed and insured business. Every team member is covered, so your home and belongings are protected on every visit.",
+    a: "Yes. Waves is a fully licensed and insured business, so your home and belongings are protected on every visit.",
   },
   {
     q: "Do I need to be home during the cleaning?",
@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "What cleaning products do you use?",
-    a: "We use eco-friendly, pet-safe, professional-grade products and equipment. Have specific preferences or allergies? Just let us know.",
+    a: "We use pet-safe, professional-grade products and equipment. Have specific preferences or allergies? Just let us know.",
   },
   {
     q: "Is your service pet-friendly?",

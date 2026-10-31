@@ -47,15 +47,6 @@ const STATS = [
     ),
   },
   {
-    strong: "Eco-Friendly",
-    label: "Cleaning Products",
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth={1.8}>
-        <path d="M12 2C7 8 5 12 5 15a7 7 0 0014 0c0-3-2-7-7-13z" />
-      </svg>
-    ),
-  },
-  {
     strong: "Fully",
     label: "Insured",
     icon: (

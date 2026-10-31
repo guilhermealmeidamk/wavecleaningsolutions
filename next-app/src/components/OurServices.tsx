@@ -12,7 +12,7 @@ const SERVICES = [
     ),
   },
   {
-    label: ["Vacation", "Home Cleaning"],
+    label: ["Post-construction", "Cleaning"],
     icon: (
       <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="5" width="18" height="16" rx="2" />
@@ -96,7 +96,7 @@ export default function OurServices() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <strong className="block font-display text-[18px] text-ink leading-tight">Not sure which service?</strong>
-            <span className="text-[13px] text-muted">Chat with our team — we&apos;ll match you to the right fit.</span>
+            <span className="text-[13px] text-muted">Chat with our team we&apos;ll match you to the right fit.</span>
           </div>
           <a
             href={`sms:${PHONE_TEL}`}

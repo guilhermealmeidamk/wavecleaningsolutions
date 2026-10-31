@@ -19,6 +19,19 @@ type Review = {
 
 const REVIEWS: Review[] = [
   {
+    author: "Taylor McNally",
+    initial: "T",
+    avatarBg: "bg-rose",
+    reviewCount: 4,
+    photoCount: 1,
+    rating: 5,
+    date: "3 days ago",
+    isNew: true,
+    title: "Reasonable price · $200–250",
+    text:
+      "I truly cannot say enough wonderful things about Taynara! She was our housekeeper in Delaware, but over time, she became so much more than that. She became family. Our boys absolutely adored her, and we all love her dearly!\n\nHer attention to detail, quality of cleaning, and communication were exceptional. She took such pride in her work, and it showed every single time. Beyond being incredibly reliable and thorough, she brought so much warmth and kindness into our home.\n\nWhen we moved away from Delaware, leaving Taynara was genuinely one of the hardest goodbyes. Anyone who welcomes her into their home is getting so much more than an amazing housekeeper. They're getting someone who truly cares. We miss her terribly and couldn't recommend her more highly! ❤️",
+  },
+  {
     author: "Konswella Bentley",
     initial: "K",
     avatarBg: "bg-rose-dark",
@@ -125,7 +138,7 @@ function ReviewCard({ r }: { r: Review }) {
       {r.title && (
         <h3 className="mt-3 font-semibold text-[14.5px] text-ink">{r.title}</h3>
       )}
-      <p className="mt-2 text-[14px] text-ink/85 leading-relaxed">
+      <p className="mt-2 text-[14px] text-ink/85 leading-relaxed whitespace-pre-line">
         {bodyPreview}
         {isLong && (
           <>

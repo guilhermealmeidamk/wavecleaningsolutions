@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import OurServices from "@/components/OurServices";
+import BeforeAfter from "@/components/BeforeAfter";
 import Testimonials from "@/components/Testimonials";
 import ServiceAreas from "@/components/ServiceAreas";
 import FAQ from "@/components/FAQ";
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <OurServices />
+      <BeforeAfter />
       <Testimonials />
       <ServiceAreas />
       <FAQ />

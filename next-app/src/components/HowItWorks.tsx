@@ -16,7 +16,7 @@ const STEPS = [
   {
     n: "02",
     title: "We Clean",
-    desc: "Our uniformed, trained, and insured team arrives with pro-grade products and equipment.",
+    desc: "Our uniformed and trained team arrives with pro-grade products and equipment.",
     icon: (
       <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18M6 21V8l6-5 6 5v13" />
